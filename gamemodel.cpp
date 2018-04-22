@@ -118,33 +118,6 @@ bool GameModel::CancelLastMove(){
 }
 
 
-bool GameModel::isFirstPlayer(string color){
-    if(color!="white"&&color!="black"){
-        throw "\'color\' expects \'black\' or \'white\', get "+color;
-    }else{
-        return color==WHO_FIRST;
-    }
-}
-string GameModel::get_whose_turn(){
-    return whose_turn;
-}
-bool GameModel::isTerminated(){
-    return terminated;
-}
-string GameModel::get_winner(){
-    return winner;
-}
-int GameModel::get_round(){
-    return round;
-}
-int GameModel::get_steps(){
-    return (int)history_moves.size();
-}
-
-bool GameModel::isEmptyBoard(){
-    return history_moves.empty();
-}
-
 Stone GameModel::at(Coordinate xy){
     return at(xy.x,xy.y);
 }
@@ -189,6 +162,32 @@ Stone GameModel::get_last_move(){
     return history_moves[(int)history_moves.size()-1];
 }
 
+bool GameModel::isFirstPlayer(string color){
+    if(color!="white"&&color!="black"){
+        throw "\'color\' expects \'black\' or \'white\', get "+color;
+    }else{
+        return color==WHO_FIRST;
+    }
+}
+string GameModel::get_whose_turn(){
+    return whose_turn;
+}
+bool GameModel::isTerminated(){
+    return terminated;
+}
+string GameModel::get_winner(){
+    return winner;
+}
+int GameModel::get_round(){
+    return round;
+}
+int GameModel::get_steps(){
+    return (int)history_moves.size();
+}
+
+bool GameModel::isEmptyBoard(){
+    return history_moves.empty();
+}
 int GameModel::get_num_of_empty_places(){
     return num_of_empty_places;
 }
