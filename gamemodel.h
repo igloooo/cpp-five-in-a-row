@@ -139,6 +139,14 @@ public:
      * taken.
      */
     Stone get_last_move();
+    /*
+     * Method: get_all_stone
+     * Usage: st_vec = game.get_all_stones()
+     * -----------------------------------------
+     * This method returns a vector of all stones
+     * on the board.
+     */
+    vector<Stone> get_all_stones();
 
     bool isFirstPlayer(string color);
     string get_whose_turn();

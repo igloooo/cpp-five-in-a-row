@@ -162,6 +162,14 @@ Stone GameModel::get_last_move(){
     return history_moves[(int)history_moves.size()-1];
 }
 
+vector<Stone> GameModel::get_all_stones(){
+    vector<Stone> all_stones;
+    for(int i=0;i<get_steps();i++){
+        all_stones[i] = history_moves[i];
+    }
+    return all_stones;
+}
+
 bool GameModel::isFirstPlayer(string color){
     if(color!="white"&&color!="black"){
         throw "\'color\' expects \'black\' or \'white\', get "+color;
