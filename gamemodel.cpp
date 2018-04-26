@@ -8,7 +8,7 @@
 using namespace std;
 
 
-GameModel::GameModel(){
+GameModel::GameModel(Player first_player):FIRST_PLAYER(first_player){
     whose_turn = WHO_FIRST;
     terminated = false;
     winner = "None";
@@ -170,6 +170,13 @@ vector<Stone> GameModel::get_all_stones(){
     return all_stones;
 }
 
+Player GameModel::get_cur_player(){
+    if(whose_turn==WHO_FIRST){
+        return FIRST_PLAYER;
+    }else{
+        return ReversePlayer(FIRST_PLAYER);
+    }
+}
 bool GameModel::isFirstPlayer(string color){
     if(color!="white"&&color!="black"){
         throw "\'color\' expects \'black\' or \'white\', get "+color;
@@ -227,4 +234,13 @@ string ReverseColor(string color){
 
 ostream & operator<<(ostream & os, GameModel & rhs){
     return os<<rhs.toString();
+}
+
+
+Player ReversePlayer(Player player){
+    if(player==COMPUTER){
+        return HUMAN;
+    }else{
+        return COMPUTER;
+    }
 }

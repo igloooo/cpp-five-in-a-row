@@ -40,6 +40,14 @@ const map<string, Coordinate> DIRECTIONS = {{"x",Coordinate(1,0)},
                                             {"y",Coordinate(0,1)},
                                             {"d",Coordinate(1,1)},
                                             {"a",Coordinate(1,-1)}};
+/*
+ * Enum type: Player
+ * ---------------------------------------------
+ * This enum type enumerates two kind of players
+ * in the game.
+ */
+enum Player{COMPUTER, HUMAN};
+
 
 /*
  * Class GameModel
@@ -59,7 +67,7 @@ public:
      * --------------------------------------
      * This method initialize the parameters
      */
-    GameModel();
+    GameModel(Player first_player);
 
     /*
      * Method: TakeMove
@@ -148,6 +156,7 @@ public:
      */
     vector<Stone> get_all_stones();
 
+    Player get_cur_player();
     bool isFirstPlayer(string color);
     string get_whose_turn();
     bool isTerminated();
@@ -159,6 +168,7 @@ public:
     string toString();
 
 protected:
+    const Player FIRST_PLAYER;
     string whose_turn;//"black""white""empty"
     bool terminated;
     string winner;//"black","white","tie","None"
@@ -171,5 +181,6 @@ protected:
 };
 ostream & operator<<(ostream & os, GameModel & rhs);
 string ReverseColor(string color);
+Player ReversePlayer(Player player);
 
 #endif // GAMEMODEL_H

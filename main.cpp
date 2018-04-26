@@ -39,7 +39,7 @@ void showBoard(GameModel & model){
 }
 
 void test_game_model(){
-    GameModel myModel = GameModel();
+    GameModel myModel = GameModel(HUMAN);
     move_and_display(myModel,0,0);
     move_and_display(myModel,1,0);
     move_and_display(myModel,0,1);
