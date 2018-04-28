@@ -8,6 +8,8 @@
 using namespace std;
 
 
+GameModel::GameModel(){}
+
 GameModel::GameModel(Player first_player):FIRST_PLAYER(first_player){
     whose_turn = WHO_FIRST;
     terminated = false;

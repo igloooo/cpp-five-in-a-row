@@ -61,9 +61,12 @@ enum Player{COMPUTER, HUMAN};
 class GameModel
 {
 public:
+
+    GameModel();
+
     /*
      * Method: constructor
-     * Usage: GameModel game();
+     * Usage: GameModel game(player);
      * --------------------------------------
      * This method initialize the parameters
      */
