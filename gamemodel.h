@@ -46,7 +46,7 @@ const map<string, Coordinate> DIRECTIONS = {{"x",Coordinate(1,0)},
  * This enum type enumerates two kind of players
  * in the game.
  */
-enum Player{COMPUTER, HUMAN};
+enum Player{HUMAN, COMPUTER};
 
 
 /*
@@ -70,7 +70,7 @@ public:
      * --------------------------------------
      * This method initialize the parameters
      */
-    GameModel(Player first_player);
+    GameModel(Player first_player, Player second_player);
 
     /*
      * Method: TakeMove
@@ -159,6 +159,8 @@ public:
      */
     vector<Stone> get_all_stones();
 
+    Player get_first_player();
+    Player get_second_player();
     Player get_cur_player();
     bool isFirstPlayer(string color);
     string get_whose_turn();
@@ -172,6 +174,7 @@ public:
 
 protected:
     const Player FIRST_PLAYER;
+    const Player SECOND_PLAYER;
     string whose_turn;//"black""white""empty"
     bool terminated;
     string winner;//"black","white","tie","None"

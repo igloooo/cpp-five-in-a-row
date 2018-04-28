@@ -19,11 +19,13 @@ SOURCES += main.cpp \
     gametreenode.cpp \
     coordinate.cpp \
     stone.cpp \
-    shapefinder.cpp
+    shapefinder.cpp \
+    gameai.cpp
 
 HEADERS += \
     gamemodel.h \
     gametreenode.h \
     coordinate.h \
     stone.h \
-    shapefinder.h
+    shapefinder.h \
+    gameai.h

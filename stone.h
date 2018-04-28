@@ -18,6 +18,7 @@ public:
     string toString() const;
     Stone & operator=(const Stone &rhs);
 };
+bool operator< (const Stone &st1, const Stone &st2);
 ostream & operator<<(ostream & os, Stone & rhs);
 
 #endif // STONE_H

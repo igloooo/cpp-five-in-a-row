@@ -8,9 +8,9 @@
 using namespace std;
 
 
-GameModel::GameModel(){}
+GameModel::GameModel():FIRST_PLAYER(HUMAN),SECOND_PLAYER(HUMAN){}
 
-GameModel::GameModel(Player first_player):FIRST_PLAYER(first_player){
+GameModel::GameModel(Player first_player, Player second_player):FIRST_PLAYER(first_player), SECOND_PLAYER(second_player){
     whose_turn = WHO_FIRST;
     terminated = false;
     winner = "None";
@@ -172,11 +172,17 @@ vector<Stone> GameModel::get_all_stones(){
     return all_stones;
 }
 
+Player GameModel::get_first_player(){
+    return FIRST_PLAYER;
+}
+Player GameModel::get_second_player(){
+    return SECOND_PLAYER;
+}
 Player GameModel::get_cur_player(){
     if(whose_turn==WHO_FIRST){
-        return FIRST_PLAYER;
+        return get_first_player();
     }else{
-        return ReversePlayer(FIRST_PLAYER);
+        return get_second_player();
     }
 }
 bool GameModel::isFirstPlayer(string color){
